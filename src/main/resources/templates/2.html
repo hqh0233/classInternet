@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学校信息</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            pointer-events: none;
+        }
+        #overflowTest {
+            background-color: #e8e8e8;
+            color: white;
+            padding: 15px;
+            width: 80%;
+            height: 100px;
+            overflow: scroll;
+            border: 1px solid #ccc;
+        }
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 20px">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" style="font-size: 30px "><img src="/img/1.png" class="mr-4">16数4</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link " href="/User/index.html">首页</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link active" href="/User/schoolData">学校信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classData">班级信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classDynamics">班级动态</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/5">同学联系</a>
+        </li>
+        <li class="nav-item dropdown m-2 text-center" >
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 20px">
+                <img src="/img/2.png" width="30px">用户
+            </a>
+            <div class="dropdown-menu ">
+                <a class="dropdown-item" href="/User/6">个人中心</a>
+                <a class="dropdown-item" href="/User/loginOut">退出登录</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <!-- 指示符 -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="3"></li>
+        <li data-target="#demo" data-slide-to="4"></li>
+        <li data-target="#demo" data-slide-to="5"></li>
+        <li data-target="#demo" data-slide-to="6"></li>
+        <li data-target="#demo" data-slide-to="7"></li>
+        <li data-target="#demo" data-slide-to="8"></li>
+    </ul>
+    <!-- 轮播图片 -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/s1.jpg" class="img-fluid">
+        </div>
+        <div class="carousel-item" >
+            <img src="/img/s2.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s3.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s4.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s5.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s6.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s7.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s8.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s9.jpeg" class="img-fluid">
+        </div>
+    </div>
+    <!-- 左右切换按钮 -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+<div class="container-fluid ">
+    <div class="row mb-5 mt-5 pl-5 pr-5">
+        <div class="col-md-12">
+            <h1>学校介绍</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">上饶师范学院</h4>
+                    <p class="card-text" style="text-indent: 25px">
+                        上饶师范学院的前身是1958年创建的上饶师专，1959年更名为赣东北大学，文革期间停办。1977年复校，2000
+                        年3月经教育部、江西省人民政府批准升格为上饶师范学院。2005年11月，通过教育部本科教学工作水平评估。
+                        2017年11月，接受教育部本科教学工作审核评估。 目前，校园占地面积1116亩，规划面积1500亩，校舍建筑总
+                        面积44.08万平方米，折合在校生数14898人。教职工1115人，其中教授（正高级）职称72人，副教授（副高级
+                        ）职称255人，博士188人。教师中享受国务院政府特殊津贴专家3人，“赣鄱英才555工程”领军人才培养计划
+                        人选1人，省政府特殊津贴专家2人，省高校教学名师4人，省高校中青年学科带头人7人，省高校中青年骨干教
+                        师29人，“新世纪百千万人才工程”省级人选16人，江西省“双千计划”人选3人，“江西省高校青年井冈学者
+                        ”1人，信江英才866工程人选8人，兼职博导3人，兼职硕导37人。学校获批化学、数学与应用数学等2个国家特
+                        色专业，学前教育专业为教育部专业综合改革试点专业；获批47个省级本科教学工程（质量工程）项目。设有
+                        15个二级学院。有现代教育技术与实验中心、计算机网络中心、图书馆、学报编辑部等教学教辅机构。有朱子
+                        学研究所、方志敏精神与赣东北经济社会发展研究中心、书法教育研究所、南方油茶科学研究所等30多个科研
+                        机构和9个学术工作室。有省级重点学科5个、省级重点实验室2个、省级重点工程中心4个、江西省高校实验教
+                        学示范中心3个，以及江西省哲学与社会科学重点研究基地、江西省“2011协同创新中心”、江西省非物质文化
+                        遗产研究基地等省级科研平台12个，同时还与企业合作成立了江西省电动汽车部件智能化工程技术研究中心、江
+                        西省干细胞产品工程技术研究中心、江西省旅游大数据工程研究中心等科研平台，与南京大学合作成立了南京
+                        大学中华民国史研究中心江西分中心等。 学校教学科研设施较为完善，拥有数字化校园网络、各专业实验室、
+                        语音室、多媒体教室、体育馆、标准塑胶 田径场等先进的教学实验设施。截止2018年12月，有馆藏纸质图书1
+                        55万册，教学科研仪器总值1.67亿元。近5 年来，教师共承担国家和省（部）级科研项目376项，国家社科基
+                        金项目立项数名列全省前十；出版专著50部， 在省级以上刊物发表学术论文1762篇，获得专利44项，28项科
+                        研成果获厅级以上奖励。 学校不断拓展对外合作交流，与美国、加拿大、泰国、马来西亚、韩国等国高校开
+                        展了多渠道、多样化的国际 联合办学。 经过近60年的办学，学校已具有较深厚的文化积淀，形成比较鲜明的
+                        师范性、地域性、多科性 学 特色。目前，学校确定了以显著提升服务地方经济社会发展的能力和成功申硕为
+                        中期目标，以创建全省一流高等师范教育和上饶师范大学为中远期目标，确立了“开放办学、内涵发展、突出
+                        特色、精细管理”的办学思路，紧紧围绕学校内涵建设和基本办学条件建设，提升办学治校能力，努力使学校
+                        的办学层次与质量再上新台阶。
+                    </p>
+                </div>
+        </div>
+    </div>
+    </div>
+    <div class="row" style="background-color: #555555">
+      <div class="col-md-12" style="color: white">
+        <div class="col-md-12 text-center" style="padding-top: 5px">
+            <p><small>企业培训 I 合作事宜 I 版权投诉</small></p>
+        </div>
+        <div class="col-md-12 text-center">
+            <p><small>苏ICP备1234568.@2020班级网站.Powered by 贺强华</small></p>
+        </div>
+    </div>
+  </div>
+</div>
+<script src="/js/jquery-3.4.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>

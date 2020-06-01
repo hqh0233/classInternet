@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>班级动态</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            pointer-events: none;
+        }
+        #overflowTest {
+            background-color: #e8e8e8;
+            color: white;
+            padding: 15px;
+            width: 80%;
+            height: 100px;
+            overflow: scroll;
+            border: 1px solid #ccc;
+        }
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 20px">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" style="font-size: 30px "><img src="/img/1.png" class="mr-4">16数4</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link " href="/User/index.html">首页</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/schoolData">学校信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classData">班级信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link active" href="/User/classDynamics">班级动态</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/5">同学联系</a>
+        </li>
+        <li class="nav-item dropdown m-2 text-center" >
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 20px">
+                <img src="/img/2.png" width="30px">用户
+            </a>
+            <div class="dropdown-menu ">
+                <a class="dropdown-item" href="/User/6">个人中心</a>
+                <a class="dropdown-item" href="/User/loginOut">退出登录</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="container-fluid ">
+    <div class="row mb-5 mt-5 pl-5 pr-5">
+        <div class="col-md-12">
+            <form action="/User/addEvent" method="post">
+                <div class="form-group">
+                    <span>标题</span><input type="text" name="title" class="form-control"  >
+                </div>
+                <div class="form-group">
+                    <label for="comment">内容:</label>
+                    <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
+                </div>
+                <div class="form-group">
+                    <span>作者</span><input type="text" name="author" class="form-control" readonly th:value="${session.usr.getUserName()}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">提交</button>
+            </form>
+        </div>
+    </div>
+     <div class="row" style="background-color: #555555">
+    <div class="col-md-12" style="color: white">
+        <div class="col-md-12 text-center" style="padding-top: 5px">
+            <p><small>企业培训 I 合作事宜 I 版权投诉</small></p>
+        </div>
+        <div class="col-md-12 text-center">
+            <p><small>苏ICP备1234568.@2020班级网站.Powered by 贺强华</small></p>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/js/jquery-3.4.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

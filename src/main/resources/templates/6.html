@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            pointer-events: none;
+        }
+        #overflowTest {
+            background-color: #e8e8e8;
+            color: white;
+            padding: 15px;
+            width: 80%;
+            height: 100px;
+            overflow: scroll;
+            border: 1px solid #ccc;
+        }
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 500px;
+        }
+        .tips{
+            color: rgba(0, 0, 0, 0.5);
+            padding-left: 10px;
+        }
+        .tips_true,.tips_false{
+            padding-left: 10px;
+        }
+        .tips_true{
+            color: green;
+        }
+        .tips_false{
+            color: red;
+        }
+        .tips-1{
+            display: none;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 20px">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" style="font-size: 30px "><img src="/img/1.png" class="mr-4">16数4</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link " href="/User/index.html">首页</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/schoolData">学校信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classData">班级信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classDynamics">班级动态</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/5">同学联系</a>
+        </li>
+        <li class="nav-item dropdown m-2 text-center" >
+            <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 20px">
+                <img src="/img/2.png" width="30px">用户
+            </a>
+            <div class="dropdown-menu ">
+                <a class="dropdown-item" href="/User/6">个人中心</a>
+                <a class="dropdown-item" href="/User/loginOut">退出登录</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="container-fluid ">
+    <div class="row mb-5 mt-5 pl-5 pr-5">
+        <div class="col-md-12">
+            <h2>个人信息</h2>
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h4 class="card-title">我的资料</h4>
+                    <p>学号：<span class="card-text" th:text="${user2.getId()}"></span></p>
+                    <p>姓名：<span class="card-text" th:text="${user2.getUserName()}"></span></p>
+                    <p>手机：<span class="card-text" th:text="${user2.getPhone()}"></span></p>
+                    <p>QQ：<span class="card-text" th:text="${user2.getQq()}"></span></p>
+                    <p>微信：<span class="card-text" th:text="${user2.getWeichat()}"></span></p>
+                    <p>家庭住址：<span class="card-text" th:text="${user2.getHome()}"></span></p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        编辑
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModa2">
+                        修改密码
+                    </button>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog ">
+                            <div class="modal-content">
+                                <!-- 模态框主体 -->
+                                <div class="modal-body text-primary" >
+                                    <form action="/User/updateUser" method="post" >
+                                        <div class="form-group">
+                                           学号：<input type="text" name="id" class="form-control" th:value="${session.usr.getId()}" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            姓名：<input type="text" name="userName" class="form-control" th:value="${session.usr.getUserName()}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="password" class="form-control"  th:value="${session.usr.getPassword()}">
+                                        </div>
+                                        <div class="form-group">
+                                            手机：<input type="text" name="phone" class="form-control" th:value="${session.usr.getPhone()}">
+                                        </div>
+                                        <div class="form-group">
+                                            QQ：<input type="text" name="qq" class="form-control" th:value="${session.usr.getQq()}"required>
+                                        </div>
+                                        <div class="form-group">
+                                            微信：<input type="text" name="weichat" class="form-control" th:value="${session.usr.getWeichat()}"required>
+                                        </div>
+                                        <div class="form-group">
+                                            家庭住址：<input type="text" name="home" class="form-control" th:value="${session.usr.getHome()}"required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                    </form>
+                                </div>
+                                <!-- 模态框底部 -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade " id="myModa2">
+                        <div class="modal-dialog ">
+                            <div class="modal-content">
+                                <!-- 模态框主体 -->
+                                <div class="modal-body text-primary">
+                                    <form action="/User/updatePassword" method="post" name="form1">
+                                        <div class="form-group" >
+                                            <span>学号：</span><input type="text" name="id" class="form-control" readonly th:value="${session.usr.getId()}">
+                                        </div>
+                                        <div class="form-group" >
+                                            <span>原密码：</span><input type="password" class="form-control" name="password3" placeholder="请输入原密码" onblur="checkpsd3()">
+                                            <span class="tips" id="divpassword3"></span>
+                                        </div>
+                                        <div class="form-group" >
+                                            <span>新密码：</span><input type="password" name="password" class="form-control"  onblur="checkpsd1()" required>
+                                            <span class="tips" id="divpassword1">密码必须由字母和数字组成</span>
+                                        </div>
+                                        <div class="form-group" >
+                                            <span>确认密码：</span><input type="password" name="password1" class="form-control"  onblur="checkpsd2()" required>
+                                            <span class="tips" id="divpassword2">两次密码需要相同</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" hidden name="password4" th:value="${session.usr.getPassword()}">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                    </form>
+                                </div>
+                                <!-- 模态框底部 -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: #555555">
+        <div class="col-md-12" style="color: white">
+            <div class="col-md-12 text-center" style="padding-top: 5px">
+                <p><small>企业培训 I 合作事宜 I 版权投诉</small></p>
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <p><small>苏ICP备1234568.@2020班级网站.Powered by 贺强华</small></p>
+        </div>
+    </div>
+</div>
+<script >
+    function checkphone() {
+        var reg= /^1[3|5|7|8|][0-9]{9}$/;
+        if(reg.test(form2.phone.value)){
+            myphone.innerHTML='<font class="tips_false">请输入正确的手机号</font>';
+        }
+        
+    }
+
+
+
+    function checkpsd1(){
+        psd1=form1.password.value;
+        var flagZM=false ;
+        var flagSZ=false ;
+        var flagQT=false ;
+        if(psd1.length<6 || psd1.length>12){
+            divpassword1.innerHTML='<font class="tips_false">长度错误</font>';
+        }else
+        {
+            for(i=0;i < psd1.length;i++)
+            {
+                if((psd1.charAt(i) >= 'A' && psd1.charAt(i)<='Z') || (psd1.charAt(i)>='a' && psd1.charAt(i)<='z'))
+                {
+                    flagZM=true;
+                }
+                else if(psd1.charAt(i)>='0' && psd1.charAt(i)<='9')
+                {
+                    flagSZ=true;
+                }else
+                {
+                    flagQT=true;
+                }
+            }
+            if(!flagZM||!flagSZ||flagQT){
+                divpassword1.innerHTML='<font class="tips_false">密码必须是字母数字的组合</font>';
+
+            }else{
+
+                divpassword1.innerHTML='<font class="tips_true">输入正确</font>';
+
+            }
+
+        }
+    }
+    //验证确认密码 
+    function checkpsd2(){
+        if(form1.password.value!=form1.password1.value) {
+            divpassword2.innerHTML='<font class="tips_false">您两次输入的密码不一样</font>';
+        } else {
+            divpassword2.innerHTML='<font class="tips_true">输入正确</font>';
+        }
+    }
+    function checkpsd3(){
+        if(form1.password3.value!=form1.password4.value) {
+            divpassword3.innerHTML='<font class="tips_false">密码错误</font>';
+        } else {
+            divpassword3.innerHTML='<font class="tips_true">输入正确</font>';
+        }
+    }
+
+</script>
+<script src="/js/jquery-3.4.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>班级信息</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            pointer-events: none;
+        }
+        #overflowTest {
+            background-color: #e8e8e8;
+            color: white;
+            padding: 15px;
+            width: 80%;
+            height: 100px;
+            overflow: scroll;
+            border: 1px solid #ccc;
+        }
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 20px">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" style="font-size: 30px "><img src="/img/1.png" class="mr-4">16数4</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link " href="/User/index.html">首页</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/schoolData">学校信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link active" href="/User/classData">班级信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classDynamics">班级动态</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/5">同学联系</a>
+        </li>
+        <li class="nav-item dropdown m-2 text-center" >
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 20px">
+                <img src="/img/2.png" width="30px">用户
+            </a>
+            <div class="dropdown-menu ">
+                <a class="dropdown-item" href="/User/6">个人中心</a>
+                <a class="dropdown-item" href="/User/loginOut">退出登录</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- 指示符 -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="3"></li>
+        <li data-target="#demo" data-slide-to="4"></li>
+        <li data-target="#demo" data-slide-to="5"></li>
+        <li data-target="#demo" data-slide-to="6"></li>
+        <li data-target="#demo" data-slide-to="7"></li>
+        <li data-target="#demo" data-slide-to="8"></li>
+    </ul>
+
+    <!-- 轮播图片 -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/s1.jpg" class="img-fluid">
+        </div>
+        <div class="carousel-item" >
+            <img src="/img/s2.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s3.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s4.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s5.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s6.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s7.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s8.jpeg" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/s9.jpeg" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- 左右切换按钮 -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+</div>
+<div class="container-fluid ">
+    <div class="row mb-5 mt-5 pl-5 pr-5">
+        <div class="col-md-12">
+            <h1>班级介绍</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center">16数4</h2>
+                    <h4 class="card-title">一、培养目标</h4>
+                    <p class="card-text" style="text-indent: 25px">
+                        培养德、智、体、美全面发展，适应社会主义现代化建设和信息产业发展的需要，具有
+                        创新能力，有良好的数学基础和数学思维能力，掌握信息与计算科学的基本理论、方法与技
+                        能，能在科技、信息产业、经济金融、教育等部门从事研究、管理、信息处理和应用开发等
+                        工作，为区域经济和社会发展服务的复合型应用人才。
+                    </p>
+                    <h4 class="card-title">二、培养要求</h4>
+                    <p class="card-text" style="text-indent: 25px">
+                        学生主要学习数学、数值计算和信息处理的基本理论和方法，接受良好的计算机基本理
+                        论以及应用数学方法、计算机解决实际问题的基本训练，具备数学建模、计算机图像处理、
+                        数据分析、算法和设计编程、信息处理的基本能力。
+                        毕业生应获得以下几方面的知识和能力：
+                        1.具有扎实的数学基础和良好的数学思维能力，掌握信息科学或计算科学的基本理论和
+                        基本知识。
+                        2.具有基本的科学计算算法分析能力、较强的编程与软件开发能力、初步的网络设计能
+                        力。特别是通过建立数学模型，分析和解决某些科研和生产中遇到的实际问题。
+                        3.对信息科学或计算科学理论、技术及应用的新发展有所了解。
+                        4.掌握资料查询、文献检索的基本方法，能阅读、翻译信息科学与计算科学理论相关的
+                        文献，具有一定的科学研究和软件开发能力。
+                    </p>
+                    <h4 class="card-title">三、培养特色</h4>
+                    <p class="card-text" style="text-indent: 25px">
+                        培养特色是适应当前本科通才教育特征的办学理念，避免过度专门化。重实际：主要是
+                        通过课程设计与课程实习、毕业实习、毕业设计等环节，使学生对用数学理论指导软件设计
+                        并进行软件实现，逐步增强认识，掌握初步的研究方法与实际求解技巧。有侧重：主要是在
+                        专业方向选择、课程开设上力求对信息科学中的数学理论基础知识有较大侧重；在课程讲授
+                        上对数学理论和金融统计的思想、方法有较大侧重；在软件课程开设上侧重能够使学生终生
+                        受益的算法理论课。
+                    </p>
+                    <h4 class="card-title">四、班级情况</h4>
+                    <p class="card-text" style="text-indent: 25px">
+                        16数4是数学与计算机学院下信息与计算科学专业下的班级，与2016年9月
+                        成立，全班共29人，男生22人，女生7人。算得是上饶师范学院男女比例最高的班级，当然是
+                        男生多，女生少，虽然不是和尚班，但也差不多了。在上饶师范学院里因为是师范类学校，所
+                        以，女孩子比较多。可惜，我们班却是这样。当然这样也没有什么不好。四年下来我们班结下
+                        了深厚的友谊，每个学期都有一次班级聚餐，当然平时大家也会一起吃饭，每一次班级活动我
+                        们都完得很开心。尤其是2018年12月我们一起参加了上饶马拉松，虽然很累，但我们很开心。
+                    </p>
+                </div>
+        </div>
+    </div>
+    </div>
+     <div class="row" style="background-color: #555555">
+    <div class="col-md-12" style="color: white">
+        <div class="col-md-12 text-center" style="padding-top: 5px">
+            <p><small>企业培训 I 合作事宜 I 版权投诉</small></p>
+        </div>
+        <div class="col-md-12 text-center">
+            <p><small>苏ICP备1234568.@2020班级网站.Powered by 贺强华</small></p>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/js/jquery-3.4.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

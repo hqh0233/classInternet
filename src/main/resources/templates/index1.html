@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://www.jq22.com/jquery/1.8.3/jquery.min.js"></script>
+    <script src="/js/jquery.leoweather.all.js"></script>
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            pointer-events: none;
+        }
+        .tianqi{
+            position: fixed;
+            bottom: 9.375rem;
+            right: 25px;
+            z-index: 3;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 20px">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" style="font-size: 30px "><img src="/img/1.png" class="mr-4">16数4</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link active" href="/User/index.html">首页</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/schoolData">学校信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classData">班级信息</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/classDynamics">班级动态</a>
+        </li>
+        <li class="nav-item m-2 text-center" >
+            <a class="nav-link" href="/User/5">同学联系</a>
+        </li>
+        <li class="nav-item dropdown m-2 text-center" >
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 20px">
+                <img src="/img/2.png" width="30px">用户
+            </a>
+            <div class="dropdown-menu ">
+                <a class="dropdown-item" href="/User/6">个人中心</a>
+                <a class="dropdown-item" href="/User/loginOut">退出登录</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid ">
+    <div class="row mb-5 mt-5 pl-5 pr-5">
+        <div class="col-md-4">
+            <br>
+            <h2><img src="/img/3.png" class="mr-2">公告</h2>
+            <div class="card" >
+                <div class="card-body text-info">
+                    <div class="row pre-scrollable">
+                        <dl th:each="notice:${notices}">
+                            <dt th:text="${notice.getDates()}"></dt>
+                            <dd th:text="${notice.getContents()}"></dd>
+                         </dl>
+                    </div>
+                </div>
+            </div>
+
+            <h2><img src="/img/6.png" class="mr-2">班委信息</h2>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-info">班长：小钦</li>
+                <li class="list-group-item list-group-item-info">团委：小缪</li>
+                <li class="list-group-item list-group-item-info">学习委员：小调</li>
+                <li class="list-group-item list-group-item-info">副班长：小磊</li>
+                <li class="list-group-item list-group-item-info">心理委员：小伟</li>
+                <li class="list-group-item list-group-item-info">生活委员：小传</li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <br>
+                    <h2 class="text-center"><a class="text-dark" href="/User/classDynamics">班级动态</a></h2>
+                    <div class="card">
+                        <div class="row pre-scrollable">
+                        <div class="card-body">
+                                <div class="card mb-2" th:each="userEvent:${userEvents}">
+                                    <div class="card-body text-success">
+                                        <blockquote class="blockquote">
+                                            <h3 th:text="${userEvent.getTitle()}"></h3>
+                                            <p class="font-italic font-weight-light" th:text="${userEvent.getContent()}"></p>
+                                            <footer class="blockquote-footer font-italic" th:text="${userEvent.getAuthor()}"></footer>
+                                            <footer class="blockquote-footer font-italic" th:text="${userEvent.getUserDate()}"></footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h2 class="text-center"><a class="text-dark" href="/User/classData">班级介绍</a></h2>
+                    <div class="card">
+                            <div class="card-body">
+                                <p class="text-info">16数4是数学与计算机学院下信息与计算科学专业下的班级，与2016年9月
+                                    成立，全班共29人，男生22人，女生7人。算得是上饶师范学院男女比例最高的班级，当然是
+                                    男生多，女生少，虽然不是和尚班，但也差不多了。在上饶师范学院里因为是师范类学校，所
+                                    以，女孩子比较多。可惜，我们班却是这样。当然这样也没有什么不好。四年下来我们班结下
+                                    了深厚的友谊，每个学期都有一次班级聚餐，当然平时大家也会一起吃饭，每一次班级活动我
+                                    们都完得很开心。尤其是2018年12月我们一起参加了上饶马拉松，虽然很累，但我们很开心。
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group dropleft tianqi dropdown">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            天气
+        </button>
+        <div class="dropdown-menu">
+            <div class="small" id="weather1"></div>
+            <div class="dropdown-divider"></div>
+            <iframe  idiscrolling="no" src="https://tianqiapi.com/api.php?style=ya&skin=pitaya" frameborder="0" width="320" height="200" allowtransparency="true"></iframe>
+        </div>
+    </div>
+    <div class="row" style="background-color: #555555">
+        <div class="col-md-12" style="color: white">
+            <div class="col-md-12 text-center" style="padding-top: 5px">
+                <p><small>企业培训 I 合作事宜 I 版权投诉</small></p>
+            </div>
+            <div class="col-md-12 text-center">
+                <p><small>苏ICP备1234568.@2020班级网站.Powered by 贺强华</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+    //	插件说明
+    //	时间：	{时段}{年}{月}{日}{时}{分}{秒}{周}
+    //	天气： {城市}{天气}{气温}{风向}{风级}{图标}{最高气温}{最低气温}{}{}{}{}{}{}{}
+    //	图标：	自己去选取样式网址，https://www.tianqiapi.com/diy.php?style=ya
+
+
+
+    /* $('#weather0').leoweather({appid:'86986721',appsecret:'eXm5G85Y',city:'深圳'}); */
+    $('#weather1').leoweather({appid:'86986721',appsecret:'eXm5G85Y',
+        format: '<div class="top">' +
+            '{时段}好！现在是：{年}/{月}/{日} {时}:{分}:{秒} 星期{周}' +
+            '</div>'
+        /* 	'<div class="mid">' +
+                '<div class="fl"><img src="https://tianqiapi.com/api.php?skin=pitaya" /></div>' +
+                '<div class="fr"><h2>{城市} {天气}</h2><p>{最低气温}~{最高气温}</p><p>{风向}{风级}</p></div>' +
+            '</div>' */
+        /* '<div class="bot">' +
+            '<ul>' +
+                '<li><strong>{人性化日期+1}</strong><span>{天气+1}</span><em>{最低气温+1}~{最高气温+1}</em></li>' +
+                '<li><strong>{人性化日期+2}</strong><span>{天气+2}</span><em>{最低气温+2}~{最高气温+2}</em></li>' +
+                '<li><strong>{人性化日期+3}</strong><span>{天气+3}</span><em>{最低气温+3}~{最高气温+3}</em></li>' +
+                '<li><strong>{人性化日期+4}</strong><span>{天气+4}</span><em>{最低气温+4}~{最高气温+4}</em></li>' +
+                '<li><strong>{人性化日期+5}</strong><span>{天气+5}</span><em>{最低气温+5}~{最高气温+5}</em></li>' +
+                '<li><strong>{人性化日期+6}</strong><span>{天气+6}</span><em>{最低气温+6}~{最高气温+6}</em></li>' +
+            '</ul>' +
+        '</div>' */
+    });
+</script>
+
+
+<script src="js/jquery-3.4.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hqh.dao.UserDaoMapper">
+    <select id="queryAllUser" resultType="User">
+        select id,userName,phone,qq,weichat,home from user;
+    </select>
+    <update id="updateUser" parameterType="User">
+        update user set userName=#{userName},phone=#{phone},qq=#{qq},weichat=#{weichat},home=#{home} where id=#{id}
+    </update>
+    <update id="updateUserPassword" parameterType="User">
+        update user set password=#{password} where id=#{id}
+    </update>
+    <select id="queryUserById" resultType="User">
+        select * from user where id=#{id}
+    </select>
+    <select id="queryUserByName" resultType="User">
+        select * from user where userName=#{userName}
+    </select>
+    <select id="queryAllNotice" resultType="Notice">
+        select * from notice;
+    </select>
+    <select id="queryAllUserEvent" resultType="UserEvent">
+        select *from user_event order by id desc ;
+    </select>
+    <insert id="addUserEvent" parameterType="UserEvent">
+        insert into user_event(title, content, author) values (
+        #{title},#{content},#{author}
+        );
+    </insert>
+</mapper>
